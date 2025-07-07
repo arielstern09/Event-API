@@ -11,6 +11,8 @@ app.use(logger("dev"));
 const userRouter = require("./routes/users/userRouter")
 app.use("/api/user", userRouter);
 
+const eventRouter = require("./routes/events/eventRouter")
+app.use("/api/event", eventRouter)
 
 app.listen(PORT, () => {
     console.log(`server is on port ${PORT}...`);
