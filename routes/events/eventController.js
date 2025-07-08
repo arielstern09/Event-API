@@ -84,8 +84,24 @@ const getEvents = async (filterQueries) => {
   }
 };
 
+// way to figure what event we are updating - event id /:eventId 
+// req.params.eventId 
+// what to update - everything specified in req.body
+const updateEventById = async (eventId, eventData) =>{
+try {
+    const updatedEvent = await Event.findByIdAndUpdate(
+        eventId, 
+        eventData, 
+        {new: true}); // allows it to return updated data
+    return updatedEvent
+} catch (error) {
+  throw error;
+}
+}
+
 module.exports = {
   createEvent,
   getEvents,
   getEventById,
+  updateEventById,
 };
